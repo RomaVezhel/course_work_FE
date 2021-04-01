@@ -1,0 +1,16 @@
+{
+  "name": "course_work_fe",
+  "scripts": {
+    "test": "protractor protractor.conf.js"
+  },
+  "private": true,
+  "dependencies": {
+    "@types/jasminewd2": "~2.0.3",
+    "jasmine": "^2.8.0",
+    "jasmine-core": "~3.4.0",
+    "jasmine-spec-reporter": "~4.2.1",
+    "jasmine2-reporter": "^1.0.1",
+    "prettier": "2.2.1",
+    "protractor": "^7.0.0"
+  }
+}
