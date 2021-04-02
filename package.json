@@ -1,6 +1,5 @@
 {
   "name": "course_work_fe",
-  "type": "module",
   "scripts": {
     "test": "protractor protractor.conf.js"
   },

@@ -1,4 +1,3 @@
-
 const { onPrepare } = require("./src/OnPrepare");
 exports.config = {
   allScriptsTimeout: 20000,
