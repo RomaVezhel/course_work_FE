@@ -1,13 +1,11 @@
-const { browser, element, By, $, $$ } = require("protractor");
+const { browser, $ } = require("protractor");
 
 const firstName = $("#first_name");
 const lastName = $("#last_name");
 const phoneNumber = $("#phone_num");
 const userEmail = $("#user_email");
 const submitBtn = $("#lead-form-submit");
-
-
-
+const popUpBtn = $("div.nrp__btn");
 
 const FunnelPage = function () {
   this.get = async function () {
@@ -34,6 +32,10 @@ const FunnelPage = function () {
 
   this.clickSubmitBtn = async function () {
     await submitBtn.click();
+  };
+
+  this.closePopUpBtn = async function () {
+    await popUpBtn.click();
   };
 };
 
