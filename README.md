@@ -1,6 +1,6 @@
 # course_work_FE
 
-# How to run script?
+# Run all tests
 
 
 
