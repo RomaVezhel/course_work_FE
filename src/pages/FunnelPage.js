@@ -1,4 +1,4 @@
-const { browser, $ } = require("protractor");
+const { browser, $, protractor } = require("protractor");
 
 const firstName = $("#first_name");
 const lastName = $("#last_name");
@@ -6,6 +6,7 @@ const phoneNumber = $("#phone_num");
 const userEmail = $("#user_email");
 const submitBtn = $("#lead-form-submit");
 const popUpBtn = $("div.nrp__btn");
+const gdpr = $("#gdpr-checkbox");
 
 const FunnelPage = function () {
   this.get = async function () {
@@ -32,6 +33,10 @@ const FunnelPage = function () {
 
   this.clickSubmitBtn = async function () {
     await submitBtn.click();
+  };
+
+  this.gdprCheckboxSelected = function () {
+    return gdpr.isSelected();
   };
 
   this.closePopUpBtn = async function () {
