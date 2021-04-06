@@ -1,9 +1,9 @@
 # course_work_FE
 
-# Run all tests
+## Run all tests
 
 
 
-$ npm install
+- npm install
 
-$ protractor protractor.conf.js
+- protractor protractor.conf.js
