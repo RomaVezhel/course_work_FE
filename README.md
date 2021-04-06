@@ -1,8 +1,9 @@
 # course_work_FE
 
-How to run script?
+# How to run script?
 
 
- npm install
 
- protractor protractor.conf.js
+$ npm install
+
+$ protractor protractor.conf.js
