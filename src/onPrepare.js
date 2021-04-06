@@ -8,6 +8,7 @@ const onPrepare = function () {
   let console_reporter_options = {
     startingSpec: true,
   };
+  jasmine.getEnv().clearReporters();
   jasmine.getEnv().addReporter(new ConsoleReporter(console_reporter_options));
 };
 
