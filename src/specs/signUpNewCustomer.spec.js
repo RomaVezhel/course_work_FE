@@ -1,7 +1,8 @@
 const { browser, $ } = require("protractor");
 const faker = require("faker/locale/es");
 const FunnelPage = require("../pages/FunnelPage.js");
-const ExpectedConditionsHelper = require("../helper/expectedConditionsHelper.js")
+const SignUpUserData = require("../test_data/SignUpUserData.js");
+const ExpectedConditionsHelper = require("../helper/expectedConditionsHelper.js");
 const constants = require("../resources/constantsFunnel");
 
 const firstName = faker.name.firstName();
@@ -23,9 +24,12 @@ describe("Sign up new customer", function () {
     await expect(FunnelPage.gdprCheckboxSelected()).toBe(true);
     await FunnelPage.clickSubmitBtn();
     await ExpectedConditionsHelper.waitPopUpVisibilityOf();
+    await expect(FunnelPage.popUpContentText1()).toEqual("¡Gracias por registrarse!");
+    await expect(FunnelPage.popUpContentText2()).toEqual("Permanezca atento y disponible para recibir la " +
+        "llamada de su gestor personal de inversiones, que le ayudará a comenzar");
+    await FunnelPage.closePopUpBtn();
+    await ExpectedConditionsHelper.waitPopUpInvisibilityOf();
   });
-
-  it("Check pop up appearing and closed", async function () {});
 });
 
 // await browser.wait(

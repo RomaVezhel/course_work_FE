@@ -7,6 +7,8 @@ const userEmail = $("#user_email");
 const submitBtn = $("#lead-form-submit");
 const popUpBtn = $("div.nrp__btn");
 const gdpr = $("#gdpr-checkbox");
+const popUpText1 = $(".nrp__t1");
+const popUpText2 = $(".nrp__t2");
 
 const FunnelPage = function () {
   this.get = async function () {
@@ -38,6 +40,15 @@ const FunnelPage = function () {
   this.gdprCheckboxSelected = function () {
     return gdpr.isSelected();
   };
+
+  this.popUpContentText1 = function () {
+    return popUpText1.getText();
+  };
+
+  this.popUpContentText2 = function () {
+    return popUpText2.getText();
+  };
+
 
   this.closePopUpBtn = async function () {
     await popUpBtn.click();
