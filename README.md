@@ -1,6 +1,6 @@
 # course_work_FE
 
-## Run all tests
+## Run tests
 
 
 
