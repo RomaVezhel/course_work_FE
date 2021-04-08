@@ -1,14 +1,7 @@
-const { browser, $ } = require("protractor");
-const faker = require("faker/locale/es");
 const FunnelPage = require("../pages/FunnelPage.js");
-const SignUpUserData = require("../test_data/SignUpUserData.js");
-const ExpectedConditionsHelper = require("../helper/expectedConditionsHelper.js");
-const constants = require("../resources/constantsFunnel");
+const constants = require("../resources/constants");
+const singUpUserData = require("../test_data/SignUpUserData.js");
 
-const firstName = faker.name.firstName();
-const lastName = faker.name.lastName();
-const phoneNumber = faker.phone.phoneNumber();
-const userEmail = faker.internet.email();
 
 describe("Sign up new customer", function () {
   it("Check URL params", async function () {
@@ -17,31 +10,19 @@ describe("Sign up new customer", function () {
   });
 
   it("Set sign up value and submit", async function () {
-    await FunnelPage.setFirstName(firstName);
-    await FunnelPage.setLastName(lastName);
-    await FunnelPage.setPhoneNum(phoneNumber);
-    await FunnelPage.setUserEmail(userEmail);
-    await expect(FunnelPage.gdprCheckboxSelected()).toBe(true);
+    await FunnelPage.setFirstName(singUpUserData.firstName);
+    await FunnelPage.setLastName(singUpUserData.lastName);
+    await FunnelPage.setPhoneNum(singUpUserData.phoneNumber);
+    await FunnelPage.setUserEmail(singUpUserData.userEmail);
+    await expect(FunnelPage.gdprCheckboxSelected()).toBeTruthy();
     await FunnelPage.clickSubmitBtn();
-    await ExpectedConditionsHelper.waitPopUpVisibilityOf();
-    await expect(FunnelPage.popUpContentText1()).toEqual("¡Gracias por registrarse!");
-    await expect(FunnelPage.popUpContentText2()).toEqual("Permanezca atento y disponible para recibir la " +
-        "llamada de su gestor personal de inversiones, que le ayudará a comenzar");
+    await expect(FunnelPage.popVisible()).toBeTruthy();
+    await expect(FunnelPage.popUpContentText1()).toEqual(constants.popText.popUpNrpText1);
+    await expect(FunnelPage.popUpContentText2()).toEqual(constants.popText.popUpNrpText2);
     await FunnelPage.closePopUpBtn();
-    await ExpectedConditionsHelper.waitPopUpInvisibilityOf();
+    await expect(FunnelPage.popInvisible()).toBeTruthy();
   });
 });
 
-// await browser.wait(
-//   EC.and(
-//     EC.visibilityOf(popUp),
-//     EC.textToBePresentInElement($(".nrp__t1"), "¡Gracias por registrarse!"),
-//     EC.textToBePresentInElement(
-//       $("div.nrp__t2"),
-//       "Permanezca atento y disponible para recibir la llamada de su gestor personal de inversiones, que le ayudará a comenzar"
-//     )
-//   ),
-//   10000
-// );
-// await FunnelPage.closePopUpBtn();
-// await browser.wait(EC.invisibilityOf(popUp), 10000);
+
+
