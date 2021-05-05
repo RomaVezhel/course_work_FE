@@ -1,6 +1,6 @@
 const FunnelPage = require("../pages/FunnelPage.js");
 const constants = require("../resources/constants");
-const singUpUserData = require("../test_data/SignUpUserData.js");
+const singUpUserData = require("../test_data/signUpUserData.js");
 
 
 describe("Sign up new customer", function () {
@@ -13,7 +13,7 @@ describe("Sign up new customer", function () {
     await FunnelPage.setFirstName(singUpUserData.firstName);
     await FunnelPage.setLastName(singUpUserData.lastName);
     await FunnelPage.setPhoneNum(singUpUserData.phoneNumber);
-    await FunnelPage.setUserEmail(singUpUserData.userEmail);
+    await FunnelPage.setUserEmail(singUpUserData.userEmail());
     await expect(FunnelPage.gdprCheckboxSelected()).toBeTruthy();
     await FunnelPage.clickSubmitBtn();
     await expect(FunnelPage.popVisible()).toBeTruthy();
