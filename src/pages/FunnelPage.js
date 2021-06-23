@@ -6,7 +6,7 @@ const phoneNumber = $("#phone_num");
 const userEmail = $("#user_email");
 const submitBtn = $("#lead-form-submit");
 const popUpBtn = $("div.nrp__btn");
-const gdpr = $("#gdpr-checkbox");
+// const gdpr = $("#gdpr-checkbox");
 const popUpNrpText1 = $(".nrp__t1");
 const popUpNrpText2 = $(".nrp__t2");
 const popUp = $(".nrp__block");
@@ -36,9 +36,9 @@ const FunnelPage = function () {
     await submitBtn.click();
   };
 
-  this.gdprCheckboxSelected = function () {
-    return gdpr.isSelected();
-  };
+  // this.gdprCheckboxSelected = function () {
+  //   return gdpr.isSelected();
+  // };
 
   this.popUpContentText1 = function () {
     return popUpNrpText1.getText();

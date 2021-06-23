@@ -14,7 +14,6 @@ describe("Sign up new customer", function () {
     await FunnelPage.setLastName(singUpUserData.lastName);
     await FunnelPage.setPhoneNum(singUpUserData.phoneNumber);
     await FunnelPage.setUserEmail(singUpUserData.userEmail());
-    await expect(FunnelPage.gdprCheckboxSelected()).toBeTruthy();
     await FunnelPage.clickSubmitBtn();
     await expect(FunnelPage.popVisible()).toBeTruthy();
     await expect(FunnelPage.popUpContentText1()).toEqual(constants.popText.popUpNrpText1);
